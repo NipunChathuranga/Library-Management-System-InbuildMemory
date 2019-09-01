@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchrPaneHandleReturns" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HandleReturnsformController">
+   <children>
+      <AnchorPane prefHeight="64.0" prefWidth="709.0" style="-fx-background-color: rgb(46,204,113);">
+         <children>
+            <Label alignment="CENTER" layoutX="252.0" layoutY="19.0" prefHeight="30.0" prefWidth="259.0" text="Handle Issued Books">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="57.0" fitWidth="49.0" layoutX="655.0" layoutY="10.0" onMouseClicked="#btnBackToHome_OnClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/house.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXComboBox fx:id="cmbIssuedID" layoutX="37.0" layoutY="91.0" prefHeight="25.0" prefWidth="299.0" promptText="Issued ID" />
+      <JFXTextField fx:id="txtFieldMemberName" layoutX="379.0" layoutY="91.0" prefHeight="25.0" prefWidth="330.0" promptText="Member Name" />
+      <JFXTextField fx:id="txtFieldIssuedDate" layoutX="37.0" layoutY="143.0" prefHeight="25.0" prefWidth="299.0" promptText="Issued Date" />
+      <JFXTextField fx:id="txtFieldCurrentDate" layoutX="379.0" layoutY="143.0" prefHeight="25.0" prefWidth="330.0" promptText="Current Date" />
+      <JFXTextField fx:id="txtFieldFee" layoutX="37.0" layoutY="201.0" prefHeight="25.0" prefWidth="299.0" promptText="Current Date" text="Fee " />
+      <JFXButton fx:id="btnCalculateFee" layoutX="568.0" layoutY="195.0" onAction="#btnCalculateFee_OnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #16a085;" text="Calculate Fee" textFill="#fcf7f7">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtFieldSearch" layoutX="37.0" layoutY="259.0" prefHeight="25.0" prefWidth="673.0" promptText="Issue ID/Member ID/Name/Issued Date" />
+      <TableView fx:id="tblViewHandleBooks" layoutX="37.0" layoutY="308.0" prefHeight="222.0" prefWidth="673.0">
+        <columns>
+          <TableColumn fx:id="clmnIssueID" prefWidth="170.0" text="Issue ID" />
+          <TableColumn fx:id="clmnMemID" prefWidth="160.0" text="Member ID" />
+            <TableColumn fx:id="clmnName" prefWidth="184.0" text="Name" />
+            <TableColumn fx:id="clmnIssuedDate" prefWidth="158.0" text="Issued Date" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnDone" layoutX="568.0" layoutY="541.0" onAction="#btnDone_OnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #1abc9c;" text="Done" textFill="#f5f4f4">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

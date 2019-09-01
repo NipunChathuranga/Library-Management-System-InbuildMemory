@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchrpane_MainMenu" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: rgb(0,131,143);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainformController">
+   <children>
+      <Label alignment="CENTER" layoutX="215.0" layoutY="20.0" prefHeight="46.0" prefWidth="320.0" text="Library Management System" textFill="#fffbfb">
+         <font>
+            <Font name="Segoe UI Semibold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="169.0" fitWidth="164.0" layoutX="299.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/student.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="144.0" fitWidth="194.0" layoutX="79.0" layoutY="96.0" onMouseClicked="#ManageMembers_OnClicked" onMouseEntered="#btnMember_playMouseEnterAnimation" onMouseExited="#btnMember_playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/community.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="144.0" fitWidth="136.0" layoutX="522.0" layoutY="100.0" onMouseClicked="#IssueBook_OnClicked" onMouseEntered="#btnIssueBooks_playMouseEnterAnimation" onMouseExited="#btnIssueBooks_playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/notebook.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="136.0" fitWidth="127.0" layoutX="88.0" layoutY="358.0" onMouseClicked="#HandleReturns_OnClick" onMouseEntered="#btnHandleR_playMouseEnterAnimation" onMouseExited="#btnHandleR_playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/law.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="127.0" fitWidth="161.0" layoutX="527.0" layoutY="348.0" onMouseClicked="#ManageBooks_OnClicked" onMouseEntered="#btnManageBooks_playMouseEnterAnimation" onMouseExited="#btnManageBooks_playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/project-management.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="73.0" layoutY="256.0" prefHeight="36.0" prefWidth="157.0" text="Manage Members" textFill="#eeecec">
+         <font>
+            <Font name="Segoe UI Semibold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="496.0" prefHeight="36.0" prefWidth="157.0" text="Handle Returns" textFill="#eeecec">
+         <font>
+            <Font name="Segoe UI Semibold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="509.0" layoutY="248.0" prefHeight="36.0" prefWidth="157.0" text="Issue Books" textFill="#eeecec">
+         <font>
+            <Font name="Segoe UI Semibold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="522.0" layoutY="485.0" prefHeight="36.0" prefWidth="157.0" text="Manage Books" textFill="#eeecec">
+         <font>
+            <Font name="Segoe UI Semibold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
