@@ -127,23 +127,39 @@ public class ManageMemberformController {
 
     public void btnSave_OnAction(ActionEvent actionEvent) {
 
-        if (btnSave.getText().equals("Save")) {
-            ObservableList<MemberTM> memberTMS = tblViewMembers.getItems();
-            memberTMS.add(new MemberTM(txtFieldMemberID.getText(),
-                    txtFieldName.getText(), txtFieldAddress.getText()));
-            btnNewMember_OnAction(actionEvent);
+        String name = txtFieldName.getText();
+        String address = txtFieldAddress.getText();
+        if (name.matches("^[A-Za-z\\s]{3,10}$")) {
+
+            if (address.matches("\\b[A-Za-z,.\\s]+\\b")) {
+                if (btnSave.getText().equals("Save")) {
+                    ObservableList<MemberTM> memberTMS = tblViewMembers.getItems();
+                    memberTMS.add(new MemberTM(txtFieldMemberID.getText(),
+                            txtFieldName.getText(), txtFieldAddress.getText()));
+                    btnNewMember_OnAction(actionEvent);
+
+                } else {
+
+                    MemberTM selectedmember = tblViewMembers.getSelectionModel().getSelectedItem();
+                    selectedmember.setName(txtFieldName.getText());
+                    selectedmember.setAddress(txtFieldAddress.getText());
+                    tblViewMembers.refresh();
+                    btnNewMember_OnAction(actionEvent);
+
+
+                }
+
+            } else {
+
+                txtFieldAddress.requestFocus();
+                System.out.println("Please enter a valid address.");
+            }
+
 
         } else {
-
-            MemberTM selectedmember = tblViewMembers.getSelectionModel().getSelectedItem();
-            selectedmember.setName(txtFieldName.getText());
-            selectedmember.setAddress(txtFieldAddress.getText());
-            tblViewMembers.refresh();
-            btnNewMember_OnAction(actionEvent);
-
-
+            txtFieldName.requestFocus();
+            System.out.println("Please enter a valid name.");
         }
-
 
     }
 

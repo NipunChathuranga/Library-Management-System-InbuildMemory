@@ -120,24 +120,58 @@ public class ManageBookformController {
     public void btnAdd_OnAction(ActionEvent actionEvent) {
 
         try {
-            if (btnAdd.getText().equals("Add")) {
-                ObservableList<BookTM> books = tblViewBooks.getItems();
-                books.add(new BookTM(txtFieldBookID.getText(), txtFieldTitle.getText(),
-                        txtFieldAuthor.getText(), Double.parseDouble(txtFieldPrice.getText()),
-                        txtFieldStatus.getText()));
-                btnNewBook_OnAction(actionEvent);
+            String title = txtFieldTitle.getText();
+            String author = txtFieldAuthor.getText();
+            String price = txtFieldPrice.getText();
+
+            if (title.matches("^[A-Za-z\\s]{3,20}$")) {
+
+                if (author.matches("^[A-Za-z\\s]{3,15}$")) {
+
+                    if (price.matches("^[^0][0-9]{1,8}$")) {
+
+
+                        if (btnAdd.getText().equals("Add")) {
+                            ObservableList<BookTM> books = tblViewBooks.getItems();
+                            books.add(new BookTM(txtFieldBookID.getText(), txtFieldTitle.getText(),
+                                    txtFieldAuthor.getText(), Double.parseDouble(txtFieldPrice.getText()),
+                                    txtFieldStatus.getText()));
+                            btnNewBook_OnAction(actionEvent);
+                        } else {
+
+                            BookTM selectedbook = tblViewBooks.getSelectionModel().getSelectedItem();
+                            selectedbook.setAuthor(txtFieldAuthor.getText());
+                            selectedbook.setTitle(txtFieldTitle.getText());
+                            selectedbook.setPrice(Double.parseDouble(txtFieldPrice.getText()));
+                            selectedbook.setStatus(txtFieldStatus.getText());
+                            tblViewBooks.refresh();
+                            btnNewBook_OnAction(actionEvent);
+
+
+                        }
+
+
+                    } else {
+
+
+                        txtFieldPrice.requestFocus();
+                        System.out.println("Please enter a valid price.");
+                    }
+
+
+                } else {
+                    txtFieldAuthor.requestFocus();
+                    System.out.println("Please enter a valid author.");
+                }
+
+
             } else {
 
-                BookTM selectedbook = tblViewBooks.getSelectionModel().getSelectedItem();
-                selectedbook.setAuthor(txtFieldAuthor.getText());
-                selectedbook.setTitle(txtFieldTitle.getText());
-                selectedbook.setPrice(Double.parseDouble(txtFieldPrice.getText()));
-                selectedbook.setStatus(txtFieldStatus.getText());
-                tblViewBooks.refresh();
-                btnNewBook_OnAction(actionEvent);
-
-
+                txtFieldTitle.requestFocus();
+                System.out.println("Please enter a valid title.");
             }
+
+
         } catch (NumberFormatException e) {
             System.out.println("You must set values for the text fields.");
         }
@@ -150,7 +184,7 @@ public class ManageBookformController {
         txtFieldPrice.clear();
         txtFieldAuthor.clear();
         txtFieldTitle.clear();
-       // txtFieldStatus.setText("Available");
+        // txtFieldStatus.setText("Available");
         txtFieldAuthor.setDisable(false);
         txtFieldPrice.setDisable(false);
         txtFieldSearch.setDisable(false);
